@@ -24,7 +24,9 @@ const CommentBox = ({ saveComment, fetchComments }) => {
         ></textarea>
         <button type="submit">submit</button>
       </form>
-      <button onClick={fetchData}></button>
+      <button className="fetch-data" onClick={fetchData}>
+        fetch data
+      </button>
     </div>
   );
 };

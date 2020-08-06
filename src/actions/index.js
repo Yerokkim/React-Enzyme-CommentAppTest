@@ -8,12 +8,22 @@ export const saveComment = (comment) => {
   };
 };
 
-export const fetchComments = async () => {
-  let res = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts/1/comments"
-  );
-  return {
-    type: FETCH_COMMENTS,
-    payload: res.data,
-  };
+// export const fetchComments = async() => {
+//     let res = await axios.get("https://jsonplaceholder.typicode.com/posts/1/comments")
+//     return {
+//         type: FETCH_COMMENTS,
+//         payload:res.data
+//       }
+//   ;
+// };
+
+export const fetchComments = () => () => {
+  axios
+    .get("https://jsonplaceholder.typicode.com/posts/1/comments")
+    .then((res) => {
+      return {
+        type: FETCH_COMMENTS,
+        payload: res.data,
+      };
+    });
 };
